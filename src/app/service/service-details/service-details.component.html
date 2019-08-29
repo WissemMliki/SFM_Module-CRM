@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>les détails du service: {{service.nom}}</h2>
+  <div>
+    <form (ngSubmit)="onSubmit(rForm.value)">
+      <div [formGroup]="rForm" class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="service.nom" name="nom" formControlName="nom">
+        <small *ngIf="!rForm.controls['nom'].valid && rForm.controls['nom'].touched">Le nom est obligatoire</small>
+      </div>
+      <div [formGroup]="rForm" class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="service.description" name="description" formControlName="description">
+        <small *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">La description est obligatoire</small>
+      </div>
+      <div [formGroup]="rForm" class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" required [(ngModel)]="service.type" name="type" formControlName="type">
+        <small *ngIf="!rForm.controls['type'].valid && rForm.controls['type'].touched">Le type est obligatoire</small>
+      </div>
+      <div class="form-group">
+        <label for="numeroReference">Numéro de réference</label>
+        <input type="text" onkeypress='return event.charCode >=47 && event.charCode <= 57'  class="form-control" id="numeroReference" required [(ngModel)]="service.numeroReference" name="numeroReference">
+        <small *ngIf="!rForm.controls['numeroReference'].valid && rForm.controls['numeroReference'].touched">Le numéro de téléphone est obligatoire</small>
+      </div>
+      <div class="form-group">
+        <label for="dateCreation">Date de création</label>
+        <input type="date" class="form-control" id="dateCreation" required [(ngModel)]="service.dateCreation" name="dateCreation">
+      </div>
+      <div class="form-group">
+        <label for="isPrimary">Service principal</label>
+        <input type="checkbox" id="isPrimary" required [(ngModel)]="service.isPrimary" name="isPrimary">
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary" (click)="goBack()">Retourner</button>
+        <button type="submit"  class="btn btn-success">Mettre à jour</button>
+      </div>
+    </form>
+  </div>
+</div>

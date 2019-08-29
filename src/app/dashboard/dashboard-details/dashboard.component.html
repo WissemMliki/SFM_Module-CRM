@@ -1,0 +1,252 @@
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-account-card-details text-danger icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de clients</p>
+            <div class="fluid-container">
+              <br>
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numclients}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-account-location text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de clients </p>
+            <p class="mb-0 text-right">ayant des services</p>
+            <div class="fluid-container">
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numclientswithservices }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de services</p>
+            <div class="fluid-container">
+              <br>
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numservices}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-poll-box text-success icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de services </p>
+            <p class="mb-0 text-right">associés aux clients</p>
+            <div class="fluid-container">
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numclientservices}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-calendar text-danger icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de relances</p>
+            <div class="fluid-container">
+              <br>
+              <br>
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{somme}}</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-flag text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de relances</p>
+            <p class="mb-0 text-right">suite à un évènement </p>
+            <p class="mb-0 text-right">national</p>
+            <div class="fluid-container">
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numrelanceEveNational}}</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-church text-warning icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de relances</p>
+            <p class="mb-0 text-right">suites à un évènement</p>
+            <p class="mb-0 text-right">religieux</p>
+            <div class="fluid-container">
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numRelanceEveReligieux}}</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-cake-variant text-success icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Nombre de relances</p>
+            <p class="mb-0 text-right">suite à un anniversaire</p>
+            <div class="fluid-container">
+              <br>
+              <br>
+              <h3 class="font-weight-medium text-right mb-0">{{numRelanceAnniversaire}}</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-7 grid-margin stretch-card">
+    <!--weather card-->
+    <div style="display: block; ">
+      <canvas baseChart
+              style="padding-left: 150px;"
+              height="250"
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend"
+              [colors]="pieChartColor">
+      </canvas>
+      <br>
+      <h5 style="padding-left: 150px;">Pourcentage de clients avec/sans services</h5>
+      <canvas baseChart
+              style="padding-left: 150px;"
+              height="80"
+              width="250"
+              [data]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              [colors]="barChartColor">
+      </canvas>
+      </div>
+    <!--weather card ends-->
+  </div>
+  <div class="col-lg-5 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-primary mb-5">Pourcentage de relances</h2>
+        <div class="wrapper d-flex justify-content-between">
+          <div class="side-left">
+            <p class="mb-2">Pourcentage de relances suite à un évènement national</p>
+            <p class="display-3 mb-4 font-weight-light">{{pourcentageEveNational}}%</p>
+          </div>
+          <div class="side-right">
+            <i class="mdi mdi-flag text-info icon-lg"></i>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between">
+          <div class="side-left">
+            <p class="mb-2">Pourcentage de relances suite à un évènement religieux</p>
+            <p class="display-3 mb-5 font-weight-light">{{pourcentageEveReligieux}}%</p>
+          </div>
+          <div class="side-right">
+            <i class="mdi mdi-church text-warning icon-lg"></i>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between">
+          <div class="side-left">
+            <p class="mb-2">Pourcentage de relances suite à un anniversaire</p>
+            <p class="display-3 mb-5 font-weight-light">{{pourcentageAnniversaire}}%</p>
+          </div>
+          <div class="side-right">
+            <i class="mdi mdi-cake-variant text-success icon-lg"></i>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Pourcentage de clients ayant des services</p>
+            <p class="mb-2 text-primary">{{clientsWithServices}}%</p>
+          </div>
+        </div>
+        <div class="wrapper mt-4">
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Pourcentage de clients sans services</p>
+            <p class="mb-2 text-success">{{clientWithoutServices}}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

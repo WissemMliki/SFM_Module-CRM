@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html">
+          <img src="assets/images/sfm.png" alt="logo" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">
+          <img src="assets/images/sfm.png" alt="logo" />
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+          <li class="nav-item" >
+            <a routerLink="home" class="nav-link">Accueil</a>
+          </li>
+          <li *ngIf="authority === 'user'" class="nav-item active">
+            <a routerLink="dashboard" class="nav-link">
+              <i class="mdi mdi-elevation-rise"></i>User Board</a>
+          </li>
+          <li *ngIf="authority === 'user'" class="nav-item active">
+            <a routerLink="notifications" (click)="rEve(); sendListOfServices()" class="nav-link">
+              <i class="mdi mdi-bell"></i>Notifications</a>
+          </li>
+          <li *ngIf="!authority" class="nav-item">
+            <a routerLink="auth/login" class="nav-link">
+              <i class="mdi mdi-bookmark-plus-outline"></i>Se connecter</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      <!--<li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="admin">Admin Board</a>
+      </li>-->
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<div  *ngIf="authority === 'user'" class="container-scroller">
+  <div *ngIf="authority === 'user'"  class="container-fluid page-body-wrapper">
+    <app-sidebar ></app-sidebar>
+    <div *ngIf="authority === 'user'"  class="main-panel">
+      <div *ngIf="authority === 'user'"class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer *ngIf="authority === 'user'" ></app-footer>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

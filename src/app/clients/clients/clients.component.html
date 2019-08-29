@@ -1,0 +1,31 @@
+<div class="table-responsive">
+      <button class="btn btn-primary" [routerLink]="['add']">Ajouter un client</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients" >
+          <td>{{client.id}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.nationalite}}</td>
+          <td>{{client.dateDeNaissance}}</td>
+          <td>{{client.ville}}</td>
+          <td>{{client.rue}}</td>
+          <td>{{client.codePostale}}</td>
+          <td>{{client.numeroTelephone}}</td>
+          <td>{{client.numeroFax}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.facebook}}</td>
+          <td>{{client.twitter}}</td>
+          <td>{{client.skype}}</td>
+          <td>{{client.serviceOffert | questionableBoolean}}</td>
+          <td><button  [routerLink]="['/clients', client.id, 'services']"  class="btn btn-info" btn-xs>Services</button>
+          <td><button (click)="delete(client.id)" class="mdi mdi-delete btn-danger" btn-xs style="height: 30px; width: 60px;" ></button></td>
+          <td><button  [routerLink]="['/clients/details', client.id]" class="btn btn-info" btn-xs >Modifier</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,46 @@
+<br />
+<br />
+<br />
+<div *ngIf="isLoggedIn; else loggedOut">
+  Connecté en tant que {{roles}}.
+</div>
+<body>
+<ng-template #loggedOut >
+  <div class="row col-sm-6" style="max-width:600px; padding-left: 350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Login</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Le login est nécessaire</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Le mot de passe est requis</div>
+          <div *ngIf="password.errors.minlength">Le mot de passe doit être au moins de 6 caractères
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Se connecter</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Échec de la connexion: {{errorMessage}}
+        </div>
+      </div>
+      <div>
+        <p>Je n'ai pas de compte?</p>
+        <a href="signup" class="btn btn-success">S'inscrire</a>
+      </div>
+    </form>
+    <hr />
+
+  </div>
+</ng-template>
+
+
+</body>

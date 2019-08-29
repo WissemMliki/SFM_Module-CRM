@@ -1,0 +1,23 @@
+<div class="table-responsive">
+  <h2>Liste des services des clients</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{header}}</th>
+    </tr>
+    <tr *ngIf="showNull"> Il n'y a pas de services liés à ce client... </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let clientservice of clientservices">
+      <td>{{clientservice.service.nom}}</td>
+      <td>{{clientservice.dateDebut}}</td>
+      <td>{{clientservice.dateFin}}</td>
+      <td>{{clientservice.moyenContact}}</td>
+      <td>{{clientservice.remarque}}</td>
+      <td>{{clientservice.relanceEveNational | questionableBoolean}}</td>
+      <td>{{clientservice.relanceEveReligieux | questionableBoolean}}</td>
+      <td>{{clientservice.relanceanniversaire | questionableBoolean}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

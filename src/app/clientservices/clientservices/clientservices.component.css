@@ -1,0 +1,12 @@
+
+.table-responsive{
+  font-size: 0.8rem;
+  width: 70vw;
+  background: rgba(202, 199, 199, 0.801);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+td{
+  white-space: nowrap;
+}

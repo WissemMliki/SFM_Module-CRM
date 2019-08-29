@@ -1,0 +1,73 @@
+<h2>Ajouter un nouveau client à la base de données</h2>
+<form (ngSubmit)="onSubmit()">
+  <div [formGroup]="rForm" class="form-group">
+    <label for="name">Nom</label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" formControlName="name">
+    <small *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">Le nom est obligatoire</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="nationalite">Nationalité</label>
+    <input type="text" class="form-control" id="nationalite" required [(ngModel)]="client.nationalite" nationalite="name" formControlName="nationalite">
+    <small *ngIf="!rForm.controls['nationalite'].valid && rForm.controls['nationalite'].touched">La nationalité est obligatoire</small>
+  </div>
+  <div class="form-group">
+    <label for="dateDeNaissance">Date de naissance</label>
+    <input type="date" class="form-control" id="dateDeNaissance" required [(ngModel)]="client.dateDeNaissance" name="dateDeNaissance">
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="ville">Ville</label>
+    <input type="text" class="form-control" id="ville" required [(ngModel)]="client.ville" name="ville" formControlName="ville">
+    <small *ngIf="!rForm.controls['ville'].valid && rForm.controls['ville'].touched">La ville est obligatoire</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="rue">Rue</label>
+    <input type="text" class="form-control" id="rue" required [(ngModel)]="client.rue" name="rue" formControlName="rue">
+    <small *ngIf="!rForm.controls['rue'].valid && rForm.controls['rue'].touched">La ville est obligatoire</small>
+  </div>
+  <div  class="form-group">
+    <label for="codePostale">Code potale</label>
+    <input type="text" onkeypress='return event.charCode >=48 && event.charCode <= 57 || event.charCode == 45' class="form-control"
+           id="codePostale" required [(ngModel)]="client.codePostale" name="codePostale" >
+    <small *ngIf="!rForm.controls['codePostale'].valid && rForm.controls['codePostale'].touched">Le code postale est obligatoire</small>
+  </div>
+  <div class="form-group" >
+    <label for="numeroTelephone">Numéro de Téléphone</label>
+    <input type="text" onkeypress='return event.charCode >=48 && event.charCode <= 57 || event.charCode == 45' class="form-control"
+           id="numeroTelephone" required [(ngModel)]="client.numeroTelephone" name="numeroTelephone" >
+    <small *ngIf="!rForm.controls['numeroTelephone'].valid && rForm.controls['numeroTelephone'].touched">Le numéro de téléphone est obligatoire</small>
+  </div>
+  <div class="form-group" >
+    <label for="numeroFax">Numéro de Fax</label>
+    <input type="text" onkeypress='return event.charCode >=48 && event.charCode <= 57 || event.charCode == 45' class="form-control"
+           id="numeroFax" required [(ngModel)]="client.numeroFax" name="numeroFax" >
+    <small *ngIf="!rForm.controls['numeroFax'].valid && rForm.controls['numeroFax'].touched">Le numéro de fax est obligatoire</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" required [(ngModel)]="client.email" name="email" formControlName="email">
+    <small *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">Format de email incorrect</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="facebook">Facebook</label>
+    <input type="text" class="form-control" id="facebook" required [(ngModel)]="client.facebook" name="facebook" formControlName="facebook">
+    <small *ngIf="!rForm.controls['facebook'].valid && rForm.controls['facebook'].touched">Compte Facebook est obligatoire</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="twitter">Twitter</label>
+    <input type="text" class="form-control" id="twitter" required [(ngModel)]="client.twitter" name="twitter" formControlName="twitter">
+    <small *ngIf="!rForm.controls['twitter'].valid && rForm.controls['twitter'].touched">Compte Twitter est obligatoire</small>
+  </div>
+  <div [formGroup]="rForm" class="form-group">
+    <label for="skype">Skype</label>
+    <input type="text" class="form-control" id="skype" required [(ngModel)]="client.skype" name="skype" formControlName="skype">
+    <small *ngIf="!rForm.controls['skype'].valid && rForm.controls['skype'].touched">Compte Skype est obligatoire</small>
+  </div>
+  <div class="form-group">
+    <label for="serviceOffert">Service offert</label>
+    <input type="checkbox" id="serviceOffert" required [(ngModel)]="client.serviceOffert" name="serviceOffert">
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary" (click)="goBack()">Retourner</button>
+    <button type="submit" class="btn btn-success" href="/clients">Enregistrer</button>
+  </div>
+</form>

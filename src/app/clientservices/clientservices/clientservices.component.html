@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <button class="btn btn-primary" [routerLink]="['add']">Attribuer un service</button>
+  <h2>Les services du client: {{client.name}}</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{header}}</th>
+      </tr>
+<tr *ngIf="showNull"> Il n'y a pas de services liés à ce client... </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clientservice of clientservices">
+        <td>{{clientservice.service.nom}}</td>
+        <td>{{clientservice.dateDebut}}</td>
+        <td>{{clientservice.dateFin}}</td>
+        <td>{{clientservice.moyenContact}}</td>
+        <td>{{clientservice.remarque}}</td>
+        <td>{{clientservice.relanceEveNational | questionableBoolean}}</td>
+        <td>{{clientservice.relanceEveReligieux | questionableBoolean}}</td>
+        <td>{{clientservice.relanceanniversaire | questionableBoolean}}</td>
+        <td>
+          <button class="mdi mdi-delete btn-danger" btn-xs style="height: 30px; width: 60px;" (click)="delete(clientservice.clientId, clientservice.serviceId)" btn-xs></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+

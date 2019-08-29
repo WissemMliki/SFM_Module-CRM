@@ -1,0 +1,12 @@
+
+.table-responsive{
+  font-size: 0.8rem;
+  width:80vw;
+  background: rgba(202, 199, 199, 0.801);
+  padding: 5px;
+  border-radius: 10px;
+}
+table th{
+ text-align: left;
+}
+

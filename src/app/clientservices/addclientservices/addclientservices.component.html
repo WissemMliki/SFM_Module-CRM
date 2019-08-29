@@ -1,0 +1,67 @@
+<div class="container">
+<div class="table-responsive" [hidden]="formVisible">
+    <h2>Attribuer un service au client: {{clientH.name}}</h2>
+<h2>Choisir un service</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let serviceD of services"  >
+          <td>{{serviceD.id}}</td>
+          <td>{{serviceD.nom}}</td>
+          <td>{{serviceD.description}}</td>
+          <td>{{serviceD.type}}</td>
+          <td>{{serviceD.numeroReference}}</td>
+          <td>{{serviceD.dateCreation}}</td>
+          <td>{{serviceD.isPrimary| questionableBoolean}}</td>
+          <td>
+            <button (click)="selectService(serviceD)" class="btn btn-info" btn-xs>Attribuer ce service</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<form (ngSubmit)="onSubmit(clientH.id, serviceD.id, hdForm.value)" *ngIf="formVisible" >
+<h2>Attribuer le service {{serviceD.nom}} au client {{clientH.name}}</h2>
+  <div class="form-group" [formGroup]="hdForm">
+    <label for="dateDebut">Date de début</label>
+    <input type="date" class="form-control" id="dateDebut" [(ngModel)]="clientservice.dateDebut" name="dateDebut" formControlName="dateDebut">
+    <small *ngIf="!hdForm.controls['dateDebut'].valid && hdForm.controls['dateDebut'].touched">Ce champs est obligatoire</small>
+    <div class="form-group">
+    <label for="dateFin" style="margin-top: 5px">Date de fin</label>
+    <input type="date" class="form-control" id="dateFin" required [(ngModel)]="clientservice.dateFin" name="dateFin" formControlName="dateFin" >
+    <small *ngIf="!hdForm.controls['dateFin'].valid && hdForm.controls['dateFin'].touched">Ce champs est obligatoire</small>
+  </div>
+  <small [hidden]="!hdForm.hasError('endDateLessThanStartDate')">La date de début doit être antérieure à la date de fin</small>
+  </div>
+  <div class="form-group">
+    <label for="moyenContact">Moyens de contact</label>
+    <input type="text" class="form-control" id="moyenContact" required [(ngModel)]="clientservice.moyenContact" name="moyenContact">
+  </div>
+  <div class="form-group">
+      <label for="remarque">Remarques</label>
+      <input type="text" class="form-control" id="remarque" required [(ngModel)]="clientservice.remarque" name="remarque">
+    </div>
+  <div class="form-group">
+    <label for="relanceEveNational">Relance aux évenements nationaux</label>
+    <input type="checkbox" id="relanceEveNational" required [(ngModel)]="clientservice.relanceEveNational" name="relanceEveNational">
+  </div>
+  <div class="form-group">
+    <label for="relanceEveReligieux">Relance aux évenements religieux</label>
+    <input type="checkbox" id="relanceEveReligieux" required [(ngModel)]="clientservice.relanceEveReligieux" name="relanceEveReligieux">
+  </div>
+  <div class="form-group">
+    <label for="relanceanniversaire">Relance à l'anniversaire</label>
+    <input type="checkbox" id="relanceanniversaire" required [(ngModel)]="clientservice.relanceanniversaire" name="relanceanniversaire">
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary" (click)="goBack()">Retourner</button>
+    <button type="submit" class="btn btn-success" href="/clients">Enregistrer</button>
+  </div>
+</form>
+
